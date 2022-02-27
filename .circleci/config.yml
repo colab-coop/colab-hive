@@ -1,0 +1,30 @@
+version: 2.1
+
+executors:
+  coopctl:
+    docker:
+      - image: colabcoop/deploy:0.0.22
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASSWORD
+
+jobs:
+  staging:
+    executor: coopctl
+    environment:
+      HELMFILE_ENVIRONMENT: staging
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Deploy staging Colab Discourse
+          command: coopctl deploy
+
+workflows:
+   deploy:
+     jobs:
+       - staging:
+           context: colab-kube-staging
+           filters:
+             branches:
+               only: develop

@@ -1,0 +1,18 @@
+repositories:
+  - name: bitnami
+    url: https://charts.bitnami.com/bitnami
+environments:
+  production:
+  staging:
+  development:
+releases:
+  - name: colab-discourse
+    namespace: colab
+    chart: bitnami/discourse
+    version: 6.0.2
+    secrets:
+      vault: colab-discourse
+      path: auth
+    values:
+      - ./values/env.yaml.gotmpl
+      - ./values/{{.Environment.Name}}.yaml.gotmpl
