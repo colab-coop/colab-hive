@@ -11,8 +11,10 @@ releases:
     chart: bitnami/discourse
     version: 6.0.2
     secrets:
-      vault: colab-discourse
-      path: auth
+      - vault: colab-discourse-app
+        path: auth
+      - vault: colab-discourse-db
+        path: postgresql.auth
     values:
       - ./values/env.yaml.gotmpl
       - ./values/{{.Environment.Name}}.yaml.gotmpl
