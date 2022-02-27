@@ -2,9 +2,11 @@ clusterDomain: discourse.kube.stage.colab.coop
 host: "discourse.kube.stage.colab.coop"
 ingress:
   enabled: true
-  ingressClassName: "nginx"
   hostname: discourse.kube.stage.colab.coop
+  ingressClassName: "nginx"
   annotations:
     cert-manager.io/issuer-kind: "ClusterIssuer"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  certManager: true
+  selfSigned: false
   tls: true

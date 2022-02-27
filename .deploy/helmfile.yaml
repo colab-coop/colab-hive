@@ -17,6 +17,8 @@ releases:
         path: postgresql.auth
       - vault: colab-discourse-cache
         path: redis.auth
+      - vault: colab-discourse-smtp
+        path: smtp
     values:
       - ./values/env.yaml.gotmpl
       - ./values/{{.Environment.Name}}.yaml.gotmpl
