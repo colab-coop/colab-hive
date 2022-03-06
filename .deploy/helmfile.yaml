@@ -4,7 +4,6 @@ repositories:
 environments:
   production:
   staging:
-  development:
 releases:
   - name: colab-discourse
     namespace: colab
