@@ -1,22 +1,28 @@
 repositories:
+  - name: colab
+    url: https://colab-coop.github.io/helm-charts/charts
   - name: bitnami
     url: https://charts.bitnami.com/bitnami
 environments:
   production:
   staging:
 releases:
-  - name: colab-discourse
-    namespace: colab
+  - name: hive-backup
+    namespace: colab-hive
+    chart: colab/backup-schedule
+    version: 0.0.2
+  - name: hive-app
+    namespace: colab-hive
     chart: bitnami/discourse
-    version: 6.0.2
+    version: 7.0.2
     secrets:
-      - vault: colab-discourse-app
+      - vault: hive-app
         path: auth
-      - vault: colab-discourse-db
+      - vault: hive-db
         path: postgresql.auth
-      - vault: colab-discourse-cache
+      - vault: hive-cache
         path: redis.auth
-      - vault: colab-discourse-smtp
+      - vault: hive-smtp
         path: smtp
     values:
       - ./values/env.yaml.gotmpl
