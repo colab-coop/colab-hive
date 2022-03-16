@@ -14,7 +14,7 @@ releases:
   - name: hive-app
     namespace: colab-hive
     chart: bitnami/discourse
-    version: 7.0.1
+    version: 6.0.3
     secrets:
       - vault: hive-app
         path: auth
