@@ -5,14 +5,14 @@ fullnameOverride: "hive-cache"
 master:
   persistence:
     enabled: true
-    storageClass: "hcloud_volumes"
+    storageClass: "hcloud-volumes"
     accessModes:
       - ReadWriteOnce
     size: 10Gi
 replica:
   persistence:
     enabled: true
-    storageClass: "hcloud_volumes"
+    storageClass: "hcloud-volumes"
     accessModes:
       - ReadWriteOnce
     size: 10Gi
