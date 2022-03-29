@@ -1,0 +1,31 @@
+global:
+  storageClass: "hcloud_volumes"
+nameOverride: "hive-cache"
+fullnameOverride: "hive-cache"
+master:
+  updateStrategy:
+    type: Recreate
+    rollingUpdate: null
+  persistence:
+    enabled: true
+    storageClass: "hcloud_volumes"
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
+replica:
+  updateStrategy:
+    type: Recreate
+    rollingUpdate: null
+  persistence:
+    enabled: true
+    storageClass: "hcloud_volumes"
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
+volumePermissions:
+  enabled: true
+sysctl:
+  enabled: true
+### Place those values in Vault
+# auth:
+#   password: ""
