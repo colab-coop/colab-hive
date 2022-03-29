@@ -22,8 +22,6 @@ releases:
         path: postgresql.auth
       - vault: hive-cache
         path: externalRedis
-      - vault: hive-cache
-        path: redis.auth
       - vault: hive-smtp
         path: smtp
     values:
