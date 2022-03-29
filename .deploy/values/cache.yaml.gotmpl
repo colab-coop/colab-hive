@@ -3,9 +3,6 @@ global:
 nameOverride: "hive-cache"
 fullnameOverride: "hive-cache"
 master:
-  updateStrategy:
-    type: Recreate
-    rollingUpdate: null
   persistence:
     enabled: true
     storageClass: "hcloud_volumes"
@@ -13,9 +10,6 @@ master:
       - ReadWriteOnce
     size: 10Gi
 replica:
-  updateStrategy:
-    type: Recreate
-    rollingUpdate: null
   persistence:
     enabled: true
     storageClass: "hcloud_volumes"
