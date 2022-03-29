@@ -26,6 +26,7 @@ releases:
         path: smtp
     values:
       - ./values/env.yaml.gotmpl
+      - ./values/{{.Environment.Name}}.yaml.gotmpl
   - name: hive-cache
     namespace: colab-hive
     chart: bitnami/redis
