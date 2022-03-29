@@ -21,9 +21,17 @@ releases:
       - vault: hive-db
         path: postgresql.auth
       - vault: hive-cache
-        path: redis.auth
+        path: externalRedis
       - vault: hive-smtp
         path: smtp
     values:
       - ./values/env.yaml.gotmpl
-      - ./values/{{.Environment.Name}}.yaml.gotmpl
+  - name: hive-cache
+    namespace: colab-hive
+    chart: bitnami/redis
+    version: 16.7.0
+    secrets:
+      - vault: hive-cache
+        path: auth
+    values:
+      - ./values/cache.yaml.gotmpl
