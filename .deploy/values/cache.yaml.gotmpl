@@ -1,20 +1,20 @@
 global:
-  storageClass: "hcloud-volumes"
+  storageClass: "ceph-filesystem"
 nameOverride: "hive-cache"
 fullnameOverride: "hive-cache"
 master:
   persistence:
     enabled: true
-    storageClass: "hcloud-volumes"
+    storageClass: "ceph-filesystem"
     accessModes:
-      - ReadWriteOnce
+      - ReadWriteMany
     size: 10Gi
 replica:
   persistence:
     enabled: true
-    storageClass: "hcloud-volumes"
+    storageClass: "ceph-filesystem"
     accessModes:
-      - ReadWriteOnce
+      - ReadWriteMany
     size: 10Gi
 volumePermissions:
   enabled: true
