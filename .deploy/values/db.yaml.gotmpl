@@ -1,0 +1,17 @@
+image:
+  tag: 14.2.0
+primary:
+  persistence:
+    enabled: true
+    mountPath: /var/lib/postgresql/data
+    storageClass: "ceph-filesystem"
+    size: 10Gi
+postgresqlDataDir: /var/lib/postgresql/data/pg
+### Place those values in Vault
+# global:
+#   postgresql:
+#     auth:
+#       database: ""
+#       username: ""
+#       password: ""
+#       postgresPassword: ""

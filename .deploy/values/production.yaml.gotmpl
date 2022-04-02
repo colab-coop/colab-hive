@@ -6,6 +6,7 @@ ingress:
   ingressClassName: "nginx"
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    colab.operator.coop/path: "/"
   certManager: true
   selfSigned: false
   tls: true
@@ -14,19 +15,19 @@ smtp:
   port: "587"
   protocol: "tls"
 ### Place those values in Vault
-#  smtp:
-#    host: ""
-#    user: ""
-#    password: ""
-#  auth:
-#    email: ""
-#    username: ""
-#    password: ""
-#  postgresql:
-#    auth:
-#      database: ""
-#      username: ""
-#      password: ""
-#      postgresPassword: ""
-#  externalRedis:
-#    password: ""
+# smtp:
+#   host: ""
+#   user: ""
+#   password: ""
+# auth:
+#   email: ""
+#   username: ""
+#   password: ""
+# externalDatabase:
+#   database: ""
+#   user: ""
+#   password: ""
+#   postgresUser: ""
+#   postgresPassword: ""
+# externalRedis:
+#   password: ""
