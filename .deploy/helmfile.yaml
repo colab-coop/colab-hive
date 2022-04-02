@@ -18,8 +18,8 @@ releases:
     secrets:
       - vault: hive-app
         path: auth
-      - vault: hive-db
-        path: postgresql.auth
+      - vault: hive-app-db
+        path: externalDatabase
       - vault: hive-cache
         path: externalRedis
       - vault: hive-smtp
@@ -27,6 +27,15 @@ releases:
     values:
       - ./values/env.yaml.gotmpl
       - ./values/{{.Environment.Name}}.yaml.gotmpl
+  - name: hive-db
+    namespace: colab-hive
+    chart: bitnami/postgresql
+    version: 11.0.6
+    secrets:
+      - vault: hive-db
+        path: global.postgresql.auth
+    values:
+      - ./values/db.yaml.gotmpl
   - name: hive-cache
     namespace: colab-hive
     chart: bitnami/redis
