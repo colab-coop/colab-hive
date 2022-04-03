@@ -3,6 +3,13 @@ global:
 nameOverride: "hive-cache"
 fullnameOverride: "hive-cache"
 master:
+  resources:
+    requests:
+      memory: 512Mi
+      cpu: 250m
+    limits:
+      memory: 1024Mi
+      cpu: 500m
   persistence:
     enabled: true
     storageClass: "ceph-filesystem"
@@ -10,6 +17,14 @@ master:
       - ReadWriteMany
     size: 10Gi
 replica:
+  replicaCount: 1
+  resources:
+    requests:
+      memory: 512Mi
+      cpu: 250m
+    limits:
+      memory: 1024Mi
+      cpu: 500m
   persistence:
     enabled: true
     storageClass: "ceph-filesystem"
@@ -18,8 +33,22 @@ replica:
     size: 10Gi
 volumePermissions:
   enabled: true
+  resources:
+    requests:
+      memory: 512Mi
+      cpu: 250m
+    limits:
+      memory: 1024Mi
+      cpu: 500m
 sysctl:
   enabled: true
+  resources:
+    requests:
+      memory: 512Mi
+      cpu: 250m
+    limits:
+      memory: 1024Mi
+      cpu: 500m
 ### Place those values in Vault
 # auth:
 #   password: ""

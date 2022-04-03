@@ -1,6 +1,13 @@
 image:
   tag: 14.2.0
 primary:
+  resources:
+    requests:
+      memory: 512Mi
+      cpu: 250m
+    limits:
+      memory: 1024Mi
+      cpu: 500m
   persistence:
     enabled: true
     mountPath: /var/lib/postgresql/data
