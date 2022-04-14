@@ -1,41 +1,32 @@
 version: 2.1
 executors:
-  coopctl:
+  operator:
     docker:
       - image: colabcoop/operator:0.0.31
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASSWORD
 jobs:
-  production:
+  deploy:
+    executor: operator
     steps:
       - checkout
       - setup_remote_docker:
           version: 20.10.6
           docker_layer_caching: true
       - run:
-          name: Deploy to CoLab Kube Production
-          no_output_timeout: 30m
-          command: deploy
-  staging:
-    steps:
-      - checkout
-      - setup_remote_docker:
-          version: 20.10.6
-          docker_layer_caching: true
-      - run:
-          name: Deploy to CoLab Kube Staging
+          name: Deploy to CoLab Kube
           no_output_timeout: 30m
           command: deploy
 workflows:
   deploy:
     jobs:
-      - production:
+      - deploy:
           context: colab-kube-production-v1
           filters:
             branches:
               only: production
-      - staging:
+      - deploy:
           context: colab-kube-staging-v1
           filters:
             branches:
