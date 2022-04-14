@@ -1,0 +1,11 @@
+primary:
+  persistence:
+    size: 10Gi
+### Place those values in Vault
+# global:
+#   postgresql:
+#     auth:
+#       database: ""
+#       username: ""
+#       password: ""
+#       postgresPassword: ""

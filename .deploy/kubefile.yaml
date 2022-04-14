@@ -1,0 +1,28 @@
+namespace: colab-hive
+deployments:
+  - name: hive-backup
+    chart: colab/backup
+  - name: hive-app
+    chart: bitnami/discourse
+    class: medium
+    secrets:
+      - vault: hive-app
+        path: auth
+      - vault: hive-app-db
+        path: externalDatabase
+      - vault: hive-cache
+        path: externalRedis
+      - vault: hive-smtp
+        path: smtp
+  - name: hive-db
+    chart: bitnami/postgresql
+    class: small
+    secrets:
+      - vault: hive-db
+        path: global.postgresql.auth
+  - name: hive-cache
+    chart: bitnami/redis
+    class: small
+    secrets:
+      - vault: hive-cache
+        path: auth

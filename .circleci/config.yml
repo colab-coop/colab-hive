@@ -1,50 +1,31 @@
 version: 2.1
-
 executors:
   coopctl:
     docker:
-      - image: colabcoop/deploy:0.0.35
+      - image: colabcoop/operator:0.0.31
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASSWORD
-
 jobs:
-  production:
-    executor: coopctl
-    environment:
-      HELMFILE_ENVIRONMENT: production
+  deploy:
     steps:
       - checkout
       - setup_remote_docker:
           version: 20.10.6
           docker_layer_caching: true
       - run:
-          name: Deploy to Production Cluster
+          name: Deploy to CoLab Kube
           no_output_timeout: 30m
-          command: coopctl deploy
-  staging:
-    executor: coopctl
-    environment:
-      HELMFILE_ENVIRONMENT: staging
-    steps:
-      - checkout
-      - setup_remote_docker:
-          version: 20.10.6
-          docker_layer_caching: true
-      - run:
-          name: Deploy to Staging Cluster
-          no_output_timeout: 30m
-          command: coopctl deploy
-
+          command: deploy
 workflows:
   deploy:
     jobs:
-      - production:
+      - deploy:
           context: colab-kube-production-v1
           filters:
             branches:
               only: production
-      - staging:
+      - deploy:
           context: colab-kube-staging-v1
           filters:
             branches:
