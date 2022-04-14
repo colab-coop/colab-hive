@@ -2,7 +2,7 @@ version: 2.1
 executors:
   operator:
     docker:
-      - image: colabcoop/operator:0.0.62
+      - image: colabcoop/operator:0.0.63
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASSWORD
@@ -16,8 +16,8 @@ jobs:
           docker_layer_caching: true
       - run:
           name: Deploy to CoLab Kube Production
-          no_output_timeout: 30m
           command: deploy
+          no_output_timeout: 30m
   staging:
     executor: operator
     steps:
@@ -27,8 +27,8 @@ jobs:
           docker_layer_caching: true
       - run:
           name: Deploy to CoLab Kube Staging
-          no_output_timeout: 30m
           command: deploy
+          no_output_timeout: 30m
 workflows:
   deploy:
     jobs:
