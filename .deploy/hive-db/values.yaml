@@ -5,11 +5,9 @@ primary:
       - ReadWriteOnce
 readReplicas:
   persistence:
+    size: 10Gi
     accessModes:
       - ReadWriteOnce
-image:
-  repository: bitnami/postgresql
-  tag: 14.2.0
 ### Place those values in Vault
 # global:
 #   postgresql:
