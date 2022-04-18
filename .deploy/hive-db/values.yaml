@@ -1,6 +1,12 @@
 primary:
   persistence:
     size: 10Gi
+    accessModes:
+      - ReadWriteOnce
+readReplicas:
+  persistence:
+    accessModes:
+      - ReadWriteOnce
 image:
   repository: bitnami/postgresql
   tag: 14.2.0
