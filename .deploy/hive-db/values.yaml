@@ -1,6 +1,9 @@
 primary:
   persistence:
     size: 10Gi
+image:
+  repository: bitnami/postgresql
+  tag: 14.2.0
 ### Place those values in Vault
 # global:
 #   postgresql:
