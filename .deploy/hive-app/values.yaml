@@ -6,3 +6,6 @@ externalDatabase:
   host: hive-db-postgresql
 externalRedis:
   host: hive-cache-master
+ingress:
+  annotations:
+    colab.operator.coop/name: "CoLab Hive"
