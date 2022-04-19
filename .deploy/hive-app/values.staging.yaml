@@ -1,19 +1,7 @@
 clusterDomain: "hive.kube.stage.colab.coop"
 host: "hive.kube.stage.colab.coop"
 ingress:
-  enabled: true
   hostname: "hive.kube.stage.colab.coop"
-  ingressClassName: "nginx"
-  annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    colab.operator.coop/path: "/"
-  certManager: true
-  selfSigned: false
-  tls: true
-smtp:
-  enabled: true
-  port: "587"
-  protocol: "tls"
 ### Place those values in Vault
 # smtp:
 #   host: ""

@@ -1,19 +1,7 @@
 clusterDomain: "colabhive.com"
 host: "colabhive.com"
 ingress:
-  enabled: true
   hostname: "colabhive.com"
-  ingressClassName: "nginx"
-  annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    colab.operator.coop/path: "/"
-  certManager: true
-  selfSigned: false
-  tls: true
-smtp:
-  enabled: true
-  port: "587"
-  protocol: "tls"
 ### Place those values in Vault
 # smtp:
 #   host: ""

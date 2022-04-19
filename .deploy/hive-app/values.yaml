@@ -1,0 +1,11 @@
+siteName: 'CoLab Hive'
+fullnameOverride: "hive-app"
+persistence:
+  size: 10Gi
+externalDatabase:
+  host: hive-db-postgresql
+externalRedis:
+  host: hive-cache-master
+ingress:
+  annotations:
+    colab.operator.coop/name: "CoLab Hive"

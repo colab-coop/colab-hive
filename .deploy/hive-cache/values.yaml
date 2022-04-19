@@ -1,0 +1,11 @@
+nameOverride: "hive-cache"
+fullnameOverride: "hive-cache"
+master:
+  persistence:
+    size: 10Gi
+replica:
+  persistence:
+    size: 10Gi
+### Place those values in Vault
+# auth:
+#   password: ""
