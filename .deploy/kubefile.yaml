@@ -17,7 +17,6 @@ deployments:
   - name: hive-db
     chart: bitnami/postgresql
     class: small
-    version: 14
     secrets:
       - vault: hive-db
         path: global.postgresql.auth
