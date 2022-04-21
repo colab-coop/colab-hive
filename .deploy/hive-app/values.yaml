@@ -1,4 +1,4 @@
-siteName: 'CoLab Hive'
+siteName: "CoLab Hive"
 fullnameOverride: "hive-app"
 persistence:
   size: 10Gi
