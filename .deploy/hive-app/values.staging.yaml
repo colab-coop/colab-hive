@@ -1,7 +1,7 @@
-clusterDomain: "hive.kube.stage.colab.coop"
-host: "hive.kube.stage.colab.coop"
+clusterDomain: "stage.colabhive.com"
+host: "stage.colabhive.com"
 ingress:
-  hostname: "hive.kube.stage.colab.coop"
+  hostname: "stage.colabhive.com"
 ### Place those values in Vault
 # smtp:
 #   host: ""
