@@ -1,13 +1,9 @@
 primary:
   persistence:
     size: 10Gi
-    accessModes:
-      - ReadWriteOnce
 readReplicas:
   persistence:
     size: 10Gi
-    accessModes:
-      - ReadWriteOnce
 ### Place those values in Vault
 # global:
 #   postgresql:
