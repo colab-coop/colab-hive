@@ -1,7 +1,5 @@
 namespace: colab-hive
 deployments:
-  - name: hive-backup
-    chart: colab/backup
   - name: hive-app
     chart: bitnami/discourse
     class: medium
@@ -26,3 +24,5 @@ deployments:
     secrets:
       - vault: hive-cache
         path: auth
+  - name: hive-backup
+    chart: colab/backup
